@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-game',
@@ -8,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   @Input() game: any;
+  @Output() favorite = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addToFavorites(game: any) {
+    this.favorite.emit(game);
   }
 
 }

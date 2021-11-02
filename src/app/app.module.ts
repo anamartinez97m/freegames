@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameComponent } from './components/game/game.component';
+import { AboutComponent } from './components/about/about.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     GameListComponent,
-    GameComponent
+    GameComponent,
+    AboutComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
