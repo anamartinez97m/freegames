@@ -1,1 +1,3 @@
-<p>game-list works!</p>
+<div class="game" *ngFor="let game of gameList">
+    <app-game [game]="game"></app-game>
+</div>
