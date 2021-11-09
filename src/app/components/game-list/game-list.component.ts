@@ -18,19 +18,18 @@ export class GameListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.gameList = this.gamesService.getGameList();
 
-    // this.subscriptions.push(
-    //   this.gamesService.getGameListFromAPI().subscribe((response: any) => {
-    //     this.gameList = response;
-    //   })
-    // );
+    this.subscriptions.push(
+      this.gamesService.getGameListFromAPI().subscribe((response: any) => {
+        this.gameList = response;
+      })
+    );
   }
 
-  // ngOnDestroy(): void {
-  //   for(const s of this.subscriptions) {
-  //     s.unsubscribe();
-  //   }
-  // }
+  ngOnDestroy(): void {
+    for(const s of this.subscriptions) {
+      s.unsubscribe();
+    }
+  }
 
 }
