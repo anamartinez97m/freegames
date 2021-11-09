@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { FavoritesService } from 'src/app/services/favorites.service';
 import { GamesService } from 'src/app/services/games.service';
 
 @Component({
@@ -8,20 +10,27 @@ import { GamesService } from 'src/app/services/games.service';
 })
 export class GameListComponent implements OnInit {
 
-  gameList: any[];
+  subscriptions: Subscription[] = [];
+  gameList: any;
 
-  constructor(private gamesService: GamesService) {
-    this.gameList = this.gamesService.getGameList();
-   }
+  constructor(
+    private gamesService: GamesService
+  ) {}
 
   ngOnInit(): void {
+    this.gameList = this.gamesService.getGameList();
+
+    // this.subscriptions.push(
+    //   this.gamesService.getGameListFromAPI().subscribe((response: any) => {
+    //     this.gameList = response;
+    //   })
+    // );
   }
 
-  hello() {
-    console.log('hello');
-  }
+  // ngOnDestroy(): void {
+  //   for(const s of this.subscriptions) {
+  //     s.unsubscribe();
+  //   }
+  // }
 
-  addToFavorites(game: any) {
-    console.log('Quiero añadir a favoritos ${game.title}');
-  }
 }

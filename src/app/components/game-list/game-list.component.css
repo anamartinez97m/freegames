@@ -1,8 +1,5 @@
-nav ul {
-    list-style-type: none;
-}
-
-nav li {
-    display: inline;
-    padding: 2rem;
+.app-game-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }

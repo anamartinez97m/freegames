@@ -1,1 +1,8 @@
-<p>favorites works!</p>
+<div class="favorites-list">
+    <div class="favorites" *ngFor="let game of favoritesGamesList">
+        <app-game [game]=game></app-game>
+    </div>
+    <span *ngIf="isEmpty(favoritesGamesList)">
+        {{ messages.error }}
+    </span>
+</div>
